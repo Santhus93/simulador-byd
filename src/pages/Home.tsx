@@ -13,6 +13,43 @@ interface Modelo {
   tipoAutorizacao?: string;
 }
 
+// ===== Helpers de mascara monetaria (R$ 0.000,00) =====
+
+function formatarDigitosParaMoeda(digitos: string): string {
+  const somenteNumeros = digitos.replace(/\D/g, "");
+
+  if (!somenteNumeros) return "";
+
+  const valorEmCentavos = parseInt(somenteNumeros, 10);
+  const valorEmReais = valorEmCentavos / 100;
+
+  return valorEmReais.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+
+function moedaParaNumero(valorFormatado: string): number {
+  if (!valorFormatado) return 0;
+
+  const limpo = valorFormatado
+    .replace("R$", "")
+    .replace(/\s/g, "")
+    .replace(/\./g, "")
+    .replace(",", ".");
+
+  const n = parseFloat(limpo);
+  return isNaN(n) ? 0 : n;
+}
+
+function numeroParaMoedaInicial(valor: number): string {
+  if (!valor) return "";
+  return valor.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+
 export default function Home() {
   const [modelo, setModelo] = useState("");
   const [regional, setRegional] = useState("");
@@ -50,14 +87,18 @@ export default function Home() {
     setCalculado(false);
     const encontrado = modelos.find((item) => item.modelo === novoModelo);
     if (encontrado) {
-      setBonus(String(encontrado.bonus));
+      setBonus(numeroParaMoedaInicial(encontrado.bonus));
     }
   }
 
-  function numero(valor: string): number {
-    const limpo = valor.replace(/\./g, "").replace(",", ".");
-    const n = parseFloat(limpo);
-    return isNaN(n) ? 0 : n;
+  // Handler generico para qualquer campo de moeda
+  function handleCampoMoeda(
+    valorDigitado: string,
+    setter: (v: string) => void
+  ) {
+    const formatado = formatarDigitosParaMoeda(valorDigitado);
+    setter(formatado);
+    setCalculado(false);
   }
 
   function formatarMoeda(valor: number): string {
@@ -78,9 +119,9 @@ export default function Home() {
   const margem = modeloSelecionado?.margem ?? 0;
   const margemPPS = pps * margem;
 
-  const nValorNF = numero(valorNF);
-  const nBonus = numero(bonus);
-  const nIncidencia = numero(incidencia);
+  const nValorNF = moedaParaNumero(valorNF);
+  const nBonus = moedaParaNumero(bonus);
+  const nIncidencia = moedaParaNumero(incidencia);
 
   const desvio = pps - (nValorNF + nBonus - nIncidencia);
   const valorAlcancado = margemPPS - desvio;
@@ -200,105 +241,85 @@ export default function Home() {
                 ))}
               </select>
             </div>
+          </div>
 
-            {modeloSelecionado && (
-              <div className="largura-total card-info">
-                <p>
-                  <strong>Ano/Modelo:</strong> {modeloSelecionado.anoModelo}
-                </p>
-                <p>
-                  <strong>PPS:</strong> R$ {formatarMoeda(pps)}
-                </p>
-                <p>
-                  <strong>Margem PPS:</strong> R$ {formatarMoeda(margemPPS)} (
-                  {(margem * 100).toFixed(0)}%)
-                </p>
-                <p>
-                  <strong>Observação:</strong> {modeloSelecionado.observacao}
-                </p>
-                {valorMinimo !== undefined && (
-                  <p>
-                    <strong>Valor Mínimo ({regional}):</strong> R${" "}
-                    {formatarMoeda(valorMinimo)}
-                  </p>
-                )}
+          {/* DADOS DA NEGOCIAÇÃO - agrupado em card */}
+          <div className="secao-card">
+            <h3 className="secao-titulo">Dados da Negociação</h3>
+
+            {/* Valor NF + Bônus + Incidência, os 3 na mesma linha */}
+            <div className="form-grid-3">
+              <div className="campo">
+                <label>Valor NF (Preço Pleiteado)</label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={valorNF}
+                  onChange={(e) =>
+                    handleCampoMoeda(e.target.value, setValorNF)
+                  }
+                  placeholder="R$ 0,00"
+                />
               </div>
-            )}
-          </div>
 
-          {/* DADOS DA NEGOCIAÇÃO */}
-          <h3 className="secao">Dados da Negociação</h3>
+              <div className="campo">
+                <label>Bônus</label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={bonus}
+                  onChange={(e) => handleCampoMoeda(e.target.value, setBonus)}
+                  placeholder="R$ 0,00"
+                />
+              </div>
 
-          <div className="form-grid">
-            <div className="campo">
-              <label>Valor NF (Preço Pleiteado)</label>
-              <input
-                type="text"
-                value={valorNF}
-                onChange={(e) => {
-                  setValorNF(e.target.value);
-                  setCalculado(false);
-                }}
-                placeholder="Ex: 218000"
-              />
-            </div>
-
-            <div className="campo">
-              <label>Bônus</label>
-              <input
-                type="text"
-                value={bonus}
-                onChange={(e) => {
-                  setBonus(e.target.value);
-                  setCalculado(false);
-                }}
-                placeholder="Ex: 20000"
-              />
-            </div>
-
-            <div className="campo">
-              <label>Incidência (Bancagem)</label>
-              <input
-                type="text"
-                value={incidencia}
-                onChange={(e) => {
-                  setIncidencia(e.target.value);
-                  setCalculado(false);
-                }}
-                placeholder="Ex: 0"
-              />
+              <div className="campo">
+                <label>Incidência (Bancagem)</label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={incidencia}
+                  onChange={(e) =>
+                    handleCampoMoeda(e.target.value, setIncidencia)
+                  }
+                  placeholder="R$ 0,00"
+                />
+              </div>
             </div>
           </div>
 
-          {/* DADOS DA VENDA */}
-          <h3 className="secao">Dados da Venda</h3>
+          {/* DADOS DA VENDA - agrupado em card */}
+          <div className="secao-card">
+            <h3 className="secao-titulo">Dados da Venda</h3>
 
-          <div className="form-grid">
-            <div className="campo">
-              <label>Cliente</label>
-              <input
-                type="text"
-                value={cliente}
-                onChange={(e) => setCliente(e.target.value)}
-              />
-            </div>
+            {/* Cliente + Chassi + Usado na troca, os 3 na mesma linha */}
+            <div className="form-grid-3">
+              <div className="campo">
+                <label>Cliente</label>
+                <input
+                  type="text"
+                  value={cliente}
+                  onChange={(e) => setCliente(e.target.value)}
+                />
+              </div>
 
-            <div className="campo">
-              <label>Chassi 0km</label>
-              <input
-                type="text"
-                value={chassi}
-                onChange={(e) => setChassi(e.target.value)}
-              />
-            </div>
+              <div className="campo">
+                <label>Chassi 0km</label>
+                <input
+                  type="text"
+                  value={chassi}
+                  onChange={(e) => setChassi(e.target.value)}
+                />
+              </div>
 
-            <div className="campo">
-              <label>Usado na troca</label>
-              <input
-                type="text"
-                value={usadoNaTroca}
-                onChange={(e) => setUsadoNaTroca(e.target.value)}
-              />
+              <div className="campo">
+                <label>Usado na troca</label>
+                <input
+                  type="text"
+                  value={usadoNaTroca}
+                  onChange={(e) => setUsadoNaTroca(e.target.value)}
+                />
+              </div>
             </div>
           </div>
 
@@ -312,8 +333,32 @@ export default function Home() {
           </button>
         </div>
 
-        {/* ===== COLUNA DIREITA: RESULTADO ===== */}
+        {/* ===== COLUNA DIREITA: INFO DO MODELO + RESULTADO ===== */}
         <div className="coluna-resultado">
+          {modeloSelecionado && (
+            <div className="card-info">
+              <p>
+                <strong>Ano/Modelo:</strong> {modeloSelecionado.anoModelo}
+              </p>
+              <p>
+                <strong>PPS:</strong> R$ {formatarMoeda(pps)}
+              </p>
+              <p>
+                <strong>Margem PPS:</strong> R$ {formatarMoeda(margemPPS)} (
+                {(margem * 100).toFixed(0)}%)
+              </p>
+              <p>
+                <strong>Observação:</strong> {modeloSelecionado.observacao}
+              </p>
+              {valorMinimo !== undefined && (
+                <p>
+                  <strong>Valor Mínimo ({regional}):</strong> R${" "}
+                  {formatarMoeda(valorMinimo)}
+                </p>
+              )}
+            </div>
+          )}
+
           {!calculado && (
             <div className="resultado-placeholder">
               Preencha os dados da negociação e clique em{" "}

@@ -58,7 +58,7 @@ body {
   background: var(--card);
   border-radius: 8px;
   font-size: 14px;
-  margin-top: 10px;
+  margin-bottom: 16px;
   border-left: 3px solid var(--byd-red);
 }
 
@@ -72,6 +72,24 @@ h3.secao {
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
   color: #fff;
+}
+
+/* ===== CARD DE SEÇÃO (agrupa campos com borda, tipo "Dados da Negociação") ===== */
+
+.secao-card {
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.secao-titulo {
+  margin: 0 0 14px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: #fff;
+  font-size: 16px;
 }
 
 /* ===== LAYOUT PRINCIPAL: FORM (esquerda) + RESULTADO (direita) ===== */
@@ -99,6 +117,13 @@ h3.secao {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 24px;
+  margin-top: 10px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 16px 20px;
   margin-top: 10px;
 }
 
@@ -241,6 +266,10 @@ h3.secao {
 
 @media (max-width: 640px) {
   .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid-3 {
     grid-template-columns: 1fr;
   }
 }
