@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos sensiveis da politica comercial (nao devem ir para o repositorio publico)
+POLITICA/
+politica.json
