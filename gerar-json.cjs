@@ -57,7 +57,7 @@ const ARQUIVO_EXCEL = "./POLITICA/POLITICA VENDAS BYD SET ATUALIZADA.xlsm";
 const NOME_ABA = "EXPORTACAO_WEB";
 
 // Versao e mes de referencia da politica (aparecem no topo do simulador)
-const MES_REFERENCIA = "OUTUBRO/26";
+const MES_REFERENCIA = "OUTUBRO/2026";
 
 // Numero da linha (contando visualmente, linha 1 = cabecalho) onde
 // COMECAM os dados de verdade. Pelo print enviado, a linha 1 e o
