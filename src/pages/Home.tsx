@@ -201,7 +201,7 @@ export default function Home() {
       </div>
 
       <p className="subtitulo">
-        Política {politica.version} - {politica.mesReferencia}
+       {politica.mesReferencia}
       </p>
 
       <div className="layout">
