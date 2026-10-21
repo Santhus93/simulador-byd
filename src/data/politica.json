@@ -28,13 +28,13 @@
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 117000,
-        "BYD GOIANIA": 117000,
-        "BYD BH": 117000,
-        "BYD ES - GRANDE VITORIA": 117000,
-        "BYD ES - INTERIOR": 117000,
-        "BYD GOIAS - INTERIOR": 117000,
-        "BYD MG - INTERIOR": 117000
+        "BYD BRASILIA": 118500,
+        "BYD GOIANIA": 118500,
+        "BYD BH": 118500,
+        "BYD ES - GRANDE VITORIA": 118500,
+        "BYD ES - INTERIOR": 118500,
+        "BYD GOIAS - INTERIOR": 118500,
+        "BYD MG - INTERIOR": 118500
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
@@ -161,15 +161,15 @@
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 251990,
-        "BYD GOIANIA": 251990,
-        "BYD BH": 251990,
-        "BYD ES - GRANDE VITORIA": 251990,
-        "BYD ES - INTERIOR": 251990,
-        "BYD GOIAS - INTERIOR": 251990,
-        "BYD MG - INTERIOR": 251990
+        "BYD BRASILIA": 281990,
+        "BYD GOIANIA": 281990,
+        "BYD BH": 281990,
+        "BYD ES - GRANDE VITORIA": 281990,
+        "BYD ES - INTERIOR": 281990,
+        "BYD GOIAS - INTERIOR": 281990,
+        "BYD MG - INTERIOR": 281990
       },
-      "observacao": "Taxa + 30k Varejo",
+      "observacao": "Faturamento 251.990 + bônus 30.000",
       "tipoAutorizacao": "REGIONAL"
     },
     {
@@ -237,13 +237,13 @@
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 196990,
-        "BYD GOIANIA": 196990,
-        "BYD BH": 196990,
-        "BYD ES - GRANDE VITORIA": 196990,
-        "BYD ES - INTERIOR": 196990,
-        "BYD GOIAS - INTERIOR": 196990,
-        "BYD MG - INTERIOR": 196990
+        "BYD BRASILIA": 199990,
+        "BYD GOIANIA": 199990,
+        "BYD BH": 199990,
+        "BYD ES - GRANDE VITORIA": 199990,
+        "BYD ES - INTERIOR": 199990,
+        "BYD GOIAS - INTERIOR": 199990,
+        "BYD MG - INTERIOR": 199990
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
@@ -359,7 +359,7 @@
         "BYD GOIAS - INTERIOR": 171990,
         "BYD MG - INTERIOR": 171990
       },
-      "observacao": "5K Varejo",
+      "observacao": "Faturamento 166.990,00 + bônus 5.000",
       "tipoAutorizacao": "REGIONAL"
     },
     {

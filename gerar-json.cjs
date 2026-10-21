@@ -197,10 +197,9 @@ function main() {
   }
 
   const resultado = {
-    version: VERSAO_POLITICA,
-    mesReferencia: MES_REFERENCIA,
-    modelos,
-  };
+  mesReferencia: MES_REFERENCIA,
+  modelos,
+};
 
   const destino = path.resolve("./politica.json");
   fs.writeFileSync(destino, JSON.stringify(resultado, null, 2), "utf-8");
