@@ -123,8 +123,12 @@ export default function Home() {
   const nBonus = moedaParaNumero(bonus);
   const nIncidencia = moedaParaNumero(incidencia);
 
-  const desvio = pps - (nValorNF + nBonus - nIncidencia);
-  const valorAlcancado = margemPPS - desvio;
+  // Mantem a formula original da planilha para Valor Alcancado e margem.
+  const desvioCalculo = pps - (nValorNF + nBonus - nIncidencia);
+  const valorAlcancado = margemPPS - desvioCalculo;
+
+  // Desvio exibido: Valor NF - Valor Minimo.
+  const desvio = nValorNF - (valorMinimo ?? 0);
 
   const percMargemMinima =
     valorMinimo && valorMinimo > 0
@@ -133,6 +137,9 @@ export default function Home() {
 
   const percMargemAlcancada =
     nValorNF + nBonus > 0 ? valorAlcancado / (nValorNF + nBonus) : 0;
+
+  // Desvio de margem: Margem Alcancada - Margem Minima.
+  const desvioMargem = percMargemAlcancada - percMargemMinima;
 
   let alcada: "LIBERADO" | "AMARELO" | "VERMELHO" = "LIBERADO";
   if (percMargemAlcancada < percMargemMinima - 0.01) {
@@ -170,14 +177,15 @@ export default function Home() {
       `*Usado na troca:* ${usadoNaTroca || "-"}\n\n` +
       `*Modelo:* ${modelo}\n` +
       `*Regional:* ${regional}\n\n` +
-      `*PPS:* R$ ${formatarMoeda(pps)}\n` +
       `*Valor NF:* R$ ${formatarMoeda(nValorNF)}\n` +
-      `*Bônus:* R$ ${formatarMoeda(nBonus)}\n` +
-      `*Incidência:* R$ ${formatarMoeda(nIncidencia)}\n` +
       `*Valor Mínimo:* R$ ${formatarMoeda(valorMinimo ?? 0)}\n` +
-      `*Valor Alcançado:* R$ ${formatarMoeda(valorAlcancado)}\n\n` +
+      `*Valor Alcançado:* R$ ${formatarMoeda(valorAlcancado)}\n` +
+      `*Bônus:* R$ ${formatarMoeda(nBonus)}\n` +
+      `*Incidência:* R$ ${formatarMoeda(nIncidencia)}\n` +         
       `*Margem Mínima:* ${formatarPercentual(percMargemMinima)}%\n` +
       `*Margem Alcançada:* ${formatarPercentual(percMargemAlcancada)}%\n\n` +
+      `*Desvio:* R$ ${formatarMoeda(desvio)}\n` +
+      `*Desvio de Margem:* ${desvioMargem > 0 ? "+" : ""}${formatarPercentual(desvioMargem)}%\n\n` +
       `*ALÇADA:* ${textoAlcada}`
     );
   }
@@ -385,6 +393,22 @@ export default function Home() {
               <div className="resultado-linha">
                 <span>Margem Alcançada</span>
                 <span>{formatarPercentual(percMargemAlcancada)}%</span>
+              </div>
+              <div className="resultado-linha">
+                <span>Desvio de Margem</span>
+                <span
+                  style={{
+                    color:
+                      desvioMargem >= 0
+                        ? "#4caf50"
+                        : desvioMargem >= -0.01
+                        ? "#f9a825"
+                        : "#ee2427",
+                  }}
+                >
+                  {desvioMargem > 0 ? "+" : ""}
+                  {formatarPercentual(desvioMargem)}%
+                </span>
               </div>
 
               <div className="alcada-box" style={{ background: corAlcada }}>

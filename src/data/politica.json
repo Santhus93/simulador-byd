@@ -1,293 +1,84 @@
 {
-  "mesReferencia": "OUTUBRO/2026",
+  "mesReferencia": "NOVEMBRO/2026",
   "modelos": [
     {
-      "modelo": "ATTO 8 GS DM",
-      "anoModelo": "26/27",
-      "pps": 399990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 380000,
-        "BYD GOIANIA": 380000,
-        "BYD BH": 380000,
-        "BYD ES - GRANDE VITORIA": 380000,
-        "BYD ES - INTERIOR": 380000,
-        "BYD GOIAS - INTERIOR": 380000,
-        "BYD MG - INTERIOR": 380000
-      },
-      "observacao": "Taxa OU 20k Trade-in BYD OU 15K Trade-In Outros",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
       "modelo": "DOLPHIN MINI GS5",
-      "anoModelo": "25/26 I 26/26 I 26/27",
+      "anoModelo": "",
       "pps": 119990,
       "margem": 0.06,
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 118500,
-        "BYD GOIANIA": 118500,
-        "BYD BH": 118500,
-        "BYD ES - GRANDE VITORIA": 118500,
-        "BYD ES - INTERIOR": 118500,
-        "BYD GOIAS - INTERIOR": 118500,
-        "BYD MG - INTERIOR": 118500
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "DOLPHIN SPEC ED",
-      "anoModelo": "25/26 I 26/26 I 26/27",
-      "pps": 173990,
-      "margem": 0.06,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 165990,
-        "BYD GOIANIA": 165990,
-        "BYD BH": 165990,
-        "BYD ES - GRANDE VITORIA": 165990,
-        "BYD ES - INTERIOR": 165990,
-        "BYD GOIAS - INTERIOR": 165990,
-        "BYD MG - INTERIOR": 165990
+        "BYD BRASILIA": 117000,
+        "BYD GOIANIA": 117000,
+        "BYD BH": 117000,
+        "BYD ES - GRANDE VITORIA": 117000,
+        "BYD ES - INTERIOR": 117000,
+        "BYD GOIAS - INTERIOR": 117000,
+        "BYD MG - INTERIOR": 117000
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
     },
     {
       "modelo": "BYD DOLPHIN GS",
-      "anoModelo": "25/26 I 26/26 I 26/27",
+      "anoModelo": "",
       "pps": 149990,
       "margem": 0.06,
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 146990,
-        "BYD GOIANIA": 146990,
-        "BYD BH": 146990,
-        "BYD ES - GRANDE VITORIA": 146990,
-        "BYD ES - INTERIOR": 146990,
-        "BYD GOIAS - INTERIOR": 146990,
-        "BYD MG - INTERIOR": 146990
+        "BYD BRASILIA": 149990,
+        "BYD GOIANIA": 149990,
+        "BYD BH": 149990,
+        "BYD ES - GRANDE VITORIA": 149990,
+        "BYD ES - INTERIOR": 149990,
+        "BYD GOIAS - INTERIOR": 149990,
+        "BYD MG - INTERIOR": 149990
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "SEAL",
-      "anoModelo": "26/27",
-      "pps": 299990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 279990,
-        "BYD GOIANIA": 279990,
-        "BYD BH": 279990,
-        "BYD ES - GRANDE VITORIA": 279990,
-        "BYD ES - INTERIOR": 279990,
-        "BYD GOIAS - INTERIOR": 279990,
-        "BYD MG - INTERIOR": 279990
-      },
-      "observacao": "Taxa OU 30k trade-in BYD",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SHARK GS DM",
-      "anoModelo": "25/26 I 26/26",
-      "pps": 344990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 299990,
-        "BYD GOIANIA": 299990,
-        "BYD BH": 299990,
-        "BYD ES - GRANDE VITORIA": 299990,
-        "BYD ES - INTERIOR": 299990,
-        "BYD GOIAS - INTERIOR": 299990,
-        "BYD MG - INTERIOR": 299990
-      },
-      "observacao": "10k Varejo",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SHARK GS DM (24/25)",
-      "anoModelo": "24/25",
-      "pps": 339990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 279990,
-        "BYD GOIANIA": 279990,
-        "BYD BH": 279990,
-        "BYD ES - GRANDE VITORIA": 279990,
-        "BYD ES - INTERIOR": 279990,
-        "BYD GOIAS - INTERIOR": 279990,
-        "BYD MG - INTERIOR": 279990
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SONG PLUS GS DM",
-      "anoModelo": "24/25 I 25/26",
-      "pps": 249990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 225990,
-        "BYD GOIANIA": 225990,
-        "BYD BH": 225990,
-        "BYD ES - GRANDE VITORIA": 225990,
-        "BYD ES - INTERIOR": 225990,
-        "BYD GOIAS - INTERIOR": 225990,
-        "BYD MG - INTERIOR": 225990
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SONG PLUS PREM",
-      "anoModelo": "25/26",
-      "pps": 299800,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 281990,
-        "BYD GOIANIA": 281990,
-        "BYD BH": 281990,
-        "BYD ES - GRANDE VITORIA": 281990,
-        "BYD ES - INTERIOR": 281990,
-        "BYD GOIAS - INTERIOR": 281990,
-        "BYD MG - INTERIOR": 281990
-      },
-      "observacao": "Faturamento 251.990 + bônus 30.000",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SONG PLUS GS 1.5T",
-      "anoModelo": "26/27",
-      "pps": 249990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 239990,
-        "BYD GOIANIA": 239990,
-        "BYD BH": 239990,
-        "BYD ES - GRANDE VITORIA": 239990,
-        "BYD ES - INTERIOR": 239990,
-        "BYD GOIAS - INTERIOR": 239990,
-        "BYD MG - INTERIOR": 239990
-      },
-      "observacao": "Taxa OU 20k Trade-in BYD OU 15K Trade-In Outros OU 10k Varejo",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SONG PRO GS (25/26)",
-      "anoModelo": "24/25 I 25/26",
-      "pps": 199990,
+      "modelo": "BYD DOLPHIN GS",
+      "anoModelo": "",
+      "pps": 149990,
       "margem": 0.06,
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 181990,
-        "BYD GOIANIA": 181990,
-        "BYD BH": 181990,
-        "BYD ES - GRANDE VITORIA": 181990,
-        "BYD ES - INTERIOR": 181990,
-        "BYD GOIAS - INTERIOR": 181990,
-        "BYD MG - INTERIOR": 181990
+        "BYD BRASILIA": 147990,
+        "BYD GOIANIA": 147990,
+        "BYD BH": 147990,
+        "BYD ES - GRANDE VITORIA": 147990,
+        "BYD ES - INTERIOR": 147990,
+        "BYD GOIAS - INTERIOR": 147990,
+        "BYD MG - INTERIOR": 147990
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "SONG PRO GS (26/27)",
-      "anoModelo": "26/27",
-      "pps": 199990,
+      "modelo": "DOLPHIN SPEC ED",
+      "anoModelo": "",
+      "pps": 173990,
       "margem": 0.06,
       "lb": 0,
       "bonus": 0,
       "regionais": {
-        "BYD BRASILIA": 184990,
-        "BYD GOIANIA": 184990,
-        "BYD BH": 184990,
-        "BYD ES - GRANDE VITORIA": 184990,
-        "BYD ES - INTERIOR": 184990,
-        "BYD GOIAS - INTERIOR": 184990,
-        "BYD MG - INTERIOR": 184990
-      },
-      "observacao": "10K Varejo",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SONG PRO GS FLEX",
-      "anoModelo": "26/27",
-      "pps": 199990,
-      "margem": 0.06,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 199990,
-        "BYD GOIANIA": 199990,
-        "BYD BH": 199990,
-        "BYD ES - GRANDE VITORIA": 199990,
-        "BYD ES - INTERIOR": 199990,
-        "BYD GOIAS - INTERIOR": 199990,
-        "BYD MG - INTERIOR": 199990
+        "BYD BRASILIA": 168500,
+        "BYD GOIANIA": 168500,
+        "BYD BH": 168500,
+        "BYD ES - GRANDE VITORIA": 168500,
+        "BYD ES - INTERIOR": 168500,
+        "BYD GOIAS - INTERIOR": 168500,
+        "BYD MG - INTERIOR": 168500
       },
       "observacao": "*",
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "TAN AWD GS 700EV",
-      "anoModelo": "24/25",
-      "pps": 426800,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 349990,
-        "BYD GOIANIA": 349990,
-        "BYD BH": 349990,
-        "BYD ES - GRANDE VITORIA": 349990,
-        "BYD ES - INTERIOR": 349990,
-        "BYD GOIAS - INTERIOR": 349990,
-        "BYD MG - INTERIOR": 349990
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "YUAN PLUS GL",
-      "anoModelo": "25/26",
-      "pps": 269990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 206990,
-        "BYD GOIANIA": 206990,
-        "BYD BH": 206990,
-        "BYD ES - GRANDE VITORIA": 206990,
-        "BYD ES - INTERIOR": 206990,
-        "BYD GOIAS - INTERIOR": 206990,
-        "BYD MG - INTERIOR": 206990
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "YUAN PRO GS (25/26)",
+      "modelo": "I/BYD YUAN PRO GS (25/26)",
       "anoModelo": "25/26",
       "pps": 182990,
       "margem": 0.06,
@@ -306,85 +97,9 @@
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "YUAN PRO GS (26/27)",
+      "modelo": "I/BYD YUAN PRO GS (26/27)",
       "anoModelo": "26/27",
       "pps": 182990,
-      "margem": 0.06,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 173990,
-        "BYD GOIANIA": 173990,
-        "BYD BH": 173990,
-        "BYD ES - GRANDE VITORIA": 173990,
-        "BYD ES - INTERIOR": 173990,
-        "BYD GOIAS - INTERIOR": 173990,
-        "BYD MG - INTERIOR": 173990
-      },
-      "observacao": "Taxa OU 20k Trade-in BYD OU 10k Varejo",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "YUAN PLUS AWD",
-      "anoModelo": "26/27",
-      "pps": 269990,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 243490,
-        "BYD GOIANIA": 243490,
-        "BYD BH": 243490,
-        "BYD ES - GRANDE VITORIA": 243490,
-        "BYD ES - INTERIOR": 243490,
-        "BYD GOIAS - INTERIOR": 243490,
-        "BYD MG - INTERIOR": 243490
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "KING GS (26/27)",
-      "anoModelo": "26/27",
-      "pps": 175990,
-      "margem": 0.06,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 171990,
-        "BYD GOIANIA": 171990,
-        "BYD BH": 171990,
-        "BYD ES - GRANDE VITORIA": 171990,
-        "BYD ES - INTERIOR": 171990,
-        "BYD GOIAS - INTERIOR": 171990,
-        "BYD MG - INTERIOR": 171990
-      },
-      "observacao": "Faturamento 166.990,00 + bônus 5.000",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "SEALION 7 GS",
-      "anoModelo": "26/27",
-      "pps": 339800,
-      "margem": 0.08,
-      "lb": 0,
-      "bonus": 0,
-      "regionais": {
-        "BYD BRASILIA": 324990,
-        "BYD GOIANIA": 324990,
-        "BYD BH": 324990,
-        "BYD ES - GRANDE VITORIA": 324990,
-        "BYD ES - INTERIOR": 324990,
-        "BYD GOIAS - INTERIOR": 324990,
-        "BYD MG - INTERIOR": 324990
-      },
-      "observacao": "*",
-      "tipoAutorizacao": "REGIONAL"
-    },
-    {
-      "modelo": "ATTO 2",
-      "anoModelo": "26/27",
-      "pps": 169990,
       "margem": 0.06,
       "lb": 0,
       "bonus": 0,
@@ -397,7 +112,292 @@
         "BYD GOIAS - INTERIOR": 169990,
         "BYD MG - INTERIOR": 169990
       },
+      "observacao": "Taxa 0% OU 20k Trade -in BYD-BYD OU 10k Varejo",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "KING GS (26/27)",
+      "anoModelo": "27/26",
+      "pps": 175990,
+      "margem": 0.06,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 166990,
+        "BYD GOIANIA": 166990,
+        "BYD BH": 166990,
+        "BYD ES - GRANDE VITORIA": 166990,
+        "BYD ES - INTERIOR": 166990,
+        "BYD GOIAS - INTERIOR": 166990,
+        "BYD MG - INTERIOR": 166990
+      },
+      "observacao": "5K Varejo",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "ATTO 2 GS",
+      "anoModelo": "",
+      "pps": 169990,
+      "margem": 0.06,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 168990,
+        "BYD GOIANIA": 168990,
+        "BYD BH": 168990,
+        "BYD ES - GRANDE VITORIA": 168990,
+        "BYD ES - INTERIOR": 168990,
+        "BYD GOIAS - INTERIOR": 168990,
+        "BYD MG - INTERIOR": 168990
+      },
       "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "SONG PRO GS (25/26)",
+      "anoModelo": "26/25",
+      "pps": 199990,
+      "margem": 0.06,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 184990,
+        "BYD GOIANIA": 184990,
+        "BYD BH": 184990,
+        "BYD ES - GRANDE VITORIA": 184990,
+        "BYD ES - INTERIOR": 184990,
+        "BYD GOIAS - INTERIOR": 184990,
+        "BYD MG - INTERIOR": 184990
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "SONG PRO GS (26/27)",
+      "anoModelo": "27/26",
+      "pps": 199990,
+      "margem": 0.06,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 184990,
+        "BYD GOIANIA": 184990,
+        "BYD BH": 184990,
+        "BYD ES - GRANDE VITORIA": 184990,
+        "BYD ES - INTERIOR": 184990,
+        "BYD GOIAS - INTERIOR": 184990,
+        "BYD MG - INTERIOR": 184990
+      },
+      "observacao": "10K Varejo",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "SONG PRO GS FLEX (26/27)",
+      "anoModelo": "26/27",
+      "pps": 199990,
+      "margem": 0.06,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 198990,
+        "BYD GOIANIA": 198990,
+        "BYD BH": 198990,
+        "BYD ES - GRANDE VITORIA": 198990,
+        "BYD ES - INTERIOR": 198990,
+        "BYD GOIAS - INTERIOR": 198990,
+        "BYD MG - INTERIOR": 198990
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "SONG PLUS GS 1.5T",
+      "anoModelo": "",
+      "pps": 249990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 234990,
+        "BYD GOIANIA": 234990,
+        "BYD BH": 234990,
+        "BYD ES - GRANDE VITORIA": 234990,
+        "BYD ES - INTERIOR": 234990,
+        "BYD GOIAS - INTERIOR": 234990,
+        "BYD MG - INTERIOR": 234990
+      },
+      "observacao": "Taxa 0% + 15K Varejo (Rebate 10K)",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD SONG PLUS PREM SEM TRADE-IN",
+      "anoModelo": "",
+      "pps": 299890,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 254800,
+        "BYD GOIANIA": 254800,
+        "BYD BH": 254800,
+        "BYD ES - GRANDE VITORIA": 254800,
+        "BYD ES - INTERIOR": 254800,
+        "BYD GOIAS - INTERIOR": 254800,
+        "BYD MG - INTERIOR": 254800
+      },
+      "observacao": "Taxa 0% + 45K Varejo (Rebate 15K)",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD SONG PLUS PREM COM TRADE-IN",
+      "anoModelo": "",
+      "pps": 299890,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 254800,
+        "BYD GOIANIA": 254800,
+        "BYD BH": 254800,
+        "BYD ES - GRANDE VITORIA": 254800,
+        "BYD ES - INTERIOR": 254800,
+        "BYD GOIAS - INTERIOR": 254800,
+        "BYD MG - INTERIOR": 254800
+      },
+      "observacao": "Trade-in R$ 30.000,00 + 45K Varejo (Rebate 20K)",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD SHARK GS DM (24/25 E 25/26)",
+      "anoModelo": "24/25 | 25/26",
+      "pps": 344800,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 299990,
+        "BYD GOIANIA": 299990,
+        "BYD BH": 299990,
+        "BYD ES - GRANDE VITORIA": 299990,
+        "BYD ES - INTERIOR": 299990,
+        "BYD GOIAS - INTERIOR": 299990,
+        "BYD MG - INTERIOR": 299990
+      },
+      "observacao": "10k Varejo",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD TAN AWD GS 700EV",
+      "anoModelo": "",
+      "pps": 349990,
+      "margem": 0,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 349990,
+        "BYD GOIANIA": 349990,
+        "BYD BH": 349990,
+        "BYD ES - GRANDE VITORIA": 349990,
+        "BYD ES - INTERIOR": 349990,
+        "BYD GOIAS - INTERIOR": 349990,
+        "BYD MG - INTERIOR": 349990
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD YUAN PLUS GL",
+      "anoModelo": "",
+      "pps": 235990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 217000,
+        "BYD GOIANIA": 217000,
+        "BYD BH": 217000,
+        "BYD ES - GRANDE VITORIA": 217000,
+        "BYD ES - INTERIOR": 217000,
+        "BYD GOIAS - INTERIOR": 217000,
+        "BYD MG - INTERIOR": 217000
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "YUAN PLUS AWD",
+      "anoModelo": "",
+      "pps": 269990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 252990,
+        "BYD GOIANIA": 252990,
+        "BYD BH": 252990,
+        "BYD ES - GRANDE VITORIA": 252990,
+        "BYD ES - INTERIOR": 252990,
+        "BYD GOIAS - INTERIOR": 252990,
+        "BYD MG - INTERIOR": 252990
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "I/BYD SEAL",
+      "anoModelo": "",
+      "pps": 299990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 284990,
+        "BYD GOIANIA": 284990,
+        "BYD BH": 284990,
+        "BYD ES - GRANDE VITORIA": 284990,
+        "BYD ES - INTERIOR": 284990,
+        "BYD GOIAS - INTERIOR": 284990,
+        "BYD MG - INTERIOR": 284990
+      },
+      "observacao": "Taxa 0% OU 30k Trade -in BYD-BYD",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "SEALION 7 GS",
+      "anoModelo": "",
+      "pps": 339990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 329990,
+        "BYD GOIANIA": 329990,
+        "BYD BH": 329990,
+        "BYD ES - GRANDE VITORIA": 329990,
+        "BYD ES - INTERIOR": 329990,
+        "BYD GOIAS - INTERIOR": 329990,
+        "BYD MG - INTERIOR": 329990
+      },
+      "observacao": "*",
+      "tipoAutorizacao": "REGIONAL"
+    },
+    {
+      "modelo": "ATTO 8 GS DM",
+      "anoModelo": "",
+      "pps": 399990,
+      "margem": 0.08,
+      "lb": 0,
+      "bonus": 0,
+      "regionais": {
+        "BYD BRASILIA": 389990,
+        "BYD GOIANIA": 389990,
+        "BYD BH": 389990,
+        "BYD ES - GRANDE VITORIA": 389990,
+        "BYD ES - INTERIOR": 389990,
+        "BYD GOIAS - INTERIOR": 389990,
+        "BYD MG - INTERIOR": 389990
+      },
+      "observacao": "Taxa 0% OU 20k Trade -in BYD-BYD OU 10k Trade -in Outros",
       "tipoAutorizacao": "REGIONAL"
     }
   ]

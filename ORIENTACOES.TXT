@@ -1,0 +1,429 @@
+============================================================
+SIMULADOR BYD - PROCEDIMENTO DE ATUALIZACAO DA POLITICA
+============================================================
+
+PASTA DO PROJETO:
+C:\Projetos\simulador-byd
+
+
+============================================================
+1. ATUALIZAR O ARQUIVO EXCEL
+============================================================
+
+Arquivo utilizado pelo gerador:
+
+C:\Projetos\simulador-byd\POLITICA\POLITICA VENDAS BYD SET ATUALIZADA.xlsm
+
+A aba utilizada pelo sistema e:
+
+EXPORTACAO_WEB
+
+Antes de continuar:
+
+- Atualizar os valores necessarios no Excel.
+- Conferir se a aba EXPORTACAO_WEB refletiu as alteracoes.
+- Salvar o arquivo.
+- Fechar o Excel.
+
+
+============================================================
+2. ABRIR O CMD E CONFIGURAR NODE + GIT
+============================================================
+
+Executar:
+
+set "NODE_HOME=C:\Projetos\node22"
+set "PATH=C:\Projetos\PortableGit\cmd;%NODE_HOME%;%PATH%"
+
+cd C:\Projetos\simulador-byd
+
+
+============================================================
+3. TESTAR A LEITURA DO EXCEL
+============================================================
+
+Executar:
+
+node gerar-json.cjs --teste
+
+
+IMPORTANTE:
+
+Esse comando NAO altera o politica.json.
+
+Ele apenas mostra no terminal o que foi lido da aba EXPORTACAO_WEB.
+
+Conferir principalmente:
+
+- Modelo
+- Ano/Modelo
+- PPS
+- Margem
+- Valores das regionais
+- Observacao / Bonus
+
+
+Se os valores estiverem corretos, continuar.
+
+
+============================================================
+4. GERAR O NOVO politica.json
+============================================================
+
+Executar:
+
+node gerar-json.cjs
+
+
+O resultado esperado e algo parecido com:
+
+Arquivo gerado:
+C:\Projetos\simulador-byd\politica.json
+
+Total de modelos: XX
+
+
+SE APARECER ERRO:
+
+ReferenceError: VERSAO_POLITICA is not defined
+
+Verificar no final do gerar-json.cjs.
+
+O resultado deve estar assim:
+
+const resultado = {
+  mesReferencia: MES_REFERENCIA,
+  modelos,
+};
+
+NAO deve mais existir:
+
+version: VERSAO_POLITICA,
+
+
+============================================================
+5. COPIAR A POLITICA PARA O SITE
+============================================================
+
+O site utiliza:
+
+C:\Projetos\simulador-byd\src\data\politica.json
+
+Portanto executar:
+
+copy /Y politica.json src\data\politica.json
+
+
+O Windows deve retornar:
+
+1 arquivo(s) copiado(s).
+
+
+============================================================
+6. CONFERIR SE O GIT DETECTOU A ALTERACAO
+============================================================
+
+Executar:
+
+git status
+
+
+O resultado esperado deve conter:
+
+modified: src/data/politica.json
+
+
+ATENCAO:
+
+Se aparecer:
+
+nothing to commit, working tree clean
+
+NAO continuar ainda.
+
+Isso significa que:
+
+- O novo JSON ficou igual ao anterior;
+- O Excel pode nao ter sido salvo;
+- A EXPORTACAO_WEB pode nao ter atualizado;
+- O gerar-json.cjs pode nao ter gerado o arquivo;
+- Ou o politica.json ainda nao foi copiado para src\data.
+
+
+============================================================
+7. SALVAR A NOVA POLITICA NO GITHUB
+============================================================
+
+Quando o git status mostrar o politica.json modificado:
+
+git add .
+
+git commit -m "Atualizacao politica BYD"
+
+git push
+
+
+Pode usar uma descricao mais especifica, por exemplo:
+
+git commit -m "Atualizacao politica BYD outubro 2026"
+
+ou:
+
+git commit -m "Ajuste PPS Dolphin GS"
+
+
+============================================================
+8. PUBLICAR A NOVA VERSAO DO SIMULADOR
+============================================================
+
+Executar:
+
+npm run deploy
+
+
+O processo deve executar automaticamente:
+
+- npm run build
+- TypeScript
+- Vite
+- gh-pages
+
+
+No final deve aparecer:
+
+Published
+
+
+============================================================
+9. CONFIRMAR SE O DEPLOY CHEGOU AO GITHUB
+============================================================
+
+Executar:
+
+git fetch --all
+
+git log origin/gh-pages --oneline -3
+
+
+Exemplo:
+
+abc1234 Updates
+cd52421 Updates
+f447dbc Updates
+
+
+Se apareceu um HASH NOVO na primeira linha:
+
+DEPLOY PUBLICADO COM SUCESSO.
+
+
+O GitHub Pages deve iniciar automaticamente um novo workflow.
+
+
+============================================================
+10. CONFERIR O SITE
+============================================================
+
+Abrir:
+
+https://santhus93.github.io/simulador-byd/
+
+
+Se necessario, atualizar sem cache:
+
+Ctrl + F5
+
+ou:
+
+Ctrl + Shift + R
+
+
+============================================================
+ATUALIZACAO RAPIDA - TODOS OS COMANDOS
+============================================================
+
+Depois de atualizar, salvar e fechar o Excel:
+
+set "NODE_HOME=C:\Projetos\node22"
+set "PATH=C:\Projetos\PortableGit\cmd;%NODE_HOME%;%PATH%"
+
+cd C:\Projetos\simulador-byd
+
+node gerar-json.cjs --teste
+
+node gerar-json.cjs
+
+copy /Y politica.json src\data\politica.json
+
+git status
+
+git add .
+
+git commit -m "Atualizacao politica BYD"
+
+git push
+
+npm run deploy
+
+git fetch --all
+
+git log origin/gh-pages --oneline -3
+
+
+============================================================
+ATUALIZACAO APENAS DE CODIGO / VISUAL
+============================================================
+
+Se NAO mudou o Excel e foi apenas uma alteracao no site:
+
+git status
+
+git add .
+
+git commit -m "Descricao da alteracao"
+
+git push
+
+npm run deploy
+
+git fetch --all
+
+git log origin/gh-pages --oneline -3
+
+
+============================================================
+ATUALIZACAO PONTUAL DIRETO NO JSON
+============================================================
+
+Para uma correcao urgente e pequena, como:
+
+- PPS de um modelo
+- Valor regional
+- Observacao
+- Nome de modelo
+
+Pode alterar diretamente:
+
+C:\Projetos\simulador-byd\src\data\politica.json
+
+
+Depois:
+
+git status
+
+git add .
+
+git commit -m "Ajuste politica BYD"
+
+git push
+
+npm run deploy
+
+git fetch --all
+
+git log origin/gh-pages --oneline -3
+
+
+IMPORTANTE:
+
+Depois de fazer uma alteracao manual no politica.json,
+NAO executar gerar-json.cjs antes de corrigir tambem o Excel.
+
+Caso contrario, o gerador podera sobrescrever a correcao manual
+com o valor antigo existente na EXPORTACAO_WEB.
+
+
+============================================================
+MES DE REFERENCIA
+============================================================
+
+O mes exibido pelo simulador vem de:
+
+mesReferencia
+
+Exemplo:
+
+"mesReferencia": "OUTUBRO/2026"
+
+
+O gerar-json.cjs possui:
+
+const MES_REFERENCIA = "OUTUBRO/2026";
+
+
+Quando mudar a politica mensal, atualizar essa constante ANTES
+de executar:
+
+node gerar-json.cjs
+
+
+Nao e necessario alterar App.tsx ou Home.tsx.
+
+O React apenas le:
+
+politica.mesReferencia
+
+
+============================================================
+ARQUIVOS IMPORTANTES
+============================================================
+
+Excel fonte:
+
+POLITICA\POLITICA VENDAS BYD SET ATUALIZADA.xlsm
+
+
+Aba fonte:
+
+EXPORTACAO_WEB
+
+
+Gerador:
+
+gerar-json.cjs
+
+
+JSON temporario gerado:
+
+politica.json
+
+
+JSON utilizado pelo simulador:
+
+src\data\politica.json
+
+
+Repositorio:
+
+https://github.com/Santhus93/simulador-byd
+
+
+Site:
+
+https://santhus93.github.io/simulador-byd/
+
+
+============================================================
+REGRA DE OURO
+============================================================
+
+ANTES DE PUBLICAR:
+
+1. Conferir EXPORTACAO_WEB
+2. Rodar --teste
+3. Conferir os numeros
+4. Gerar JSON
+5. Copiar para src\data
+6. Conferir git status
+7. Commit + Push
+8. npm run deploy
+9. Conferir hash novo na gh-pages
+
+
+Nunca publicar uma politica nova sem conferir o resultado do:
+
+node gerar-json.cjs --teste
+
+============================================================
+FIM
+============================================================
