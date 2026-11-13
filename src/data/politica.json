@@ -1,5 +1,5 @@
 {
-  "mesReferencia": "NOVEMBRO/2026",
+  "mesReferencia": "OUTUBRO/2026",
   "modelos": [
     {
       "modelo": "DOLPHIN MINI GS5",
@@ -21,7 +21,7 @@
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "BYD DOLPHIN GS",
+      "modelo": "BYD DOLPHIN GS ( Com Rev.)",
       "anoModelo": "",
       "pps": 149990,
       "margem": 0.06,
@@ -36,11 +36,11 @@
         "BYD GOIAS - INTERIOR": 149990,
         "BYD MG - INTERIOR": 149990
       },
-      "observacao": "*",
+      "observacao": "03 PRIMEIRAS REVISOES GRATIS",
       "tipoAutorizacao": "REGIONAL"
     },
     {
-      "modelo": "BYD DOLPHIN GS",
+      "modelo": "BYD DOLPHIN GS ( Sem Rev. )",
       "anoModelo": "",
       "pps": 149990,
       "margem": 0.06,
@@ -55,7 +55,7 @@
         "BYD GOIAS - INTERIOR": 147990,
         "BYD MG - INTERIOR": 147990
       },
-      "observacao": "*",
+      "observacao": "SEM REVISÕES",
       "tipoAutorizacao": "REGIONAL"
     },
     {
