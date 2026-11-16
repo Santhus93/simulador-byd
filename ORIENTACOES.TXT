@@ -259,7 +259,7 @@ git status
 
 git add .
 
-git commit -m "Atualizacao politica BYD"
+git commit -m "Atualizacao politica NOVEMBRO/26 BYD"
 
 git push
 
