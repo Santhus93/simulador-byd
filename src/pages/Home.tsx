@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import politica from "../data/politica.json";
 
 interface Modelo {
+  familia: string;
   modelo: string;
   anoModelo: string;
   pps: number;
@@ -51,6 +52,7 @@ function numeroParaMoedaInicial(valor: number): string {
 }
 
 export default function Home() {
+  const [familia, setFamilia] = useState("");
   const [modelo, setModelo] = useState("");
   const [regional, setRegional] = useState("");
   const [valorNF, setValorNF] = useState<string>("");
@@ -64,6 +66,16 @@ export default function Home() {
 
   const modelos: Modelo[] = politica.modelos;
 
+  const familias = useMemo(
+    () => [...new Set(modelos.map((item) => item.familia).filter(Boolean))],
+    [modelos]
+  );
+
+  const modelosDaFamilia = useMemo(
+    () => modelos.filter((item) => item.familia === familia),
+    [modelos, familia]
+  );
+
   const regionais = [
     "BYD BRASILIA",
     "BYD GOIANIA",
@@ -74,7 +86,9 @@ export default function Home() {
     "BYD MG - INTERIOR",
   ];
 
-  const modeloSelecionado = modelos.find((item) => item.modelo === modelo);
+  const modeloSelecionado = modelos.find(
+    (item) => item.familia === familia && item.modelo === modelo
+  );
 
   const valorMinimo =
     modeloSelecionado && regional
@@ -82,10 +96,22 @@ export default function Home() {
       : undefined;
 
   // Ao selecionar o modelo, pre-preenche o Bonus sugerido pela politica
+  function handleSelecionarFamilia(novaFamilia: string) {
+    setFamilia(novaFamilia);
+    setModelo("");
+    setRegional("");
+    setBonus("");
+    setCalculado(false);
+    setCopiado(false);
+  }
+
   function handleSelecionarModelo(novoModelo: string) {
     setModelo(novoModelo);
     setCalculado(false);
-    const encontrado = modelos.find((item) => item.modelo === novoModelo);
+    setRegional("");
+    const encontrado = modelos.find(
+      (item) => item.familia === familia && item.modelo === novoModelo
+    );
     if (encontrado) {
       setBonus(numeroParaMoedaInicial(encontrado.bonus));
     }
@@ -162,7 +188,8 @@ export default function Home() {
       ? "#f9a825"
       : "#ee2427"; // vermelho da marca BYD
 
-  const podeCalcular = modelo !== "" && regional !== "" && valorNF !== "";
+  const podeCalcular =
+    familia !== "" && modelo !== "" && regional !== "" && valorNF !== "";
 
   function handleCalcular() {
     setCalculado(true);
@@ -175,6 +202,7 @@ export default function Home() {
       `*Cliente:* ${cliente || "-"}\n` +
       `*Chassi 0km:* ${chassi || "-"}\n` +
       `*Usado na troca:* ${usadoNaTroca || "-"}\n\n` +
+      `*Família:* ${familia}\n` +
       `*Modelo:* ${modelo}\n` +
       `*Regional:* ${regional}\n\n` +
       `*Valor NF:* R$ ${formatarMoeda(nValorNF)}\n` +
@@ -196,7 +224,7 @@ export default function Home() {
       await navigator.clipboard.writeText(texto);
       setCopiado(true);
       setTimeout(() => setCopiado(false), 2500);
-    } catch (e) {
+    } catch {
       alert("Não foi possível copiar automaticamente. Copie manualmente:\n\n" + texto);
     }
   }
@@ -215,16 +243,32 @@ export default function Home() {
       <div className="layout">
         {/* ===== COLUNA ESQUERDA: FORMULÁRIO ===== */}
         <div className="coluna-form">
-          {/* MODELO + REGIONAL */}
-          <div className="form-grid">
+          {/* FAMÍLIA + MODELO + REGIONAL */}
+          <div className="form-grid-3">
+            <div className="campo">
+              <label>Família</label>
+              <select
+                value={familia}
+                onChange={(e) => handleSelecionarFamilia(e.target.value)}
+              >
+                <option value="">Selecione...</option>
+                {familias.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="campo">
               <label>Modelo</label>
               <select
                 value={modelo}
                 onChange={(e) => handleSelecionarModelo(e.target.value)}
+                disabled={!familia}
               >
                 <option value="">Selecione...</option>
-                {modelos.map((item, index) => (
+                {modelosDaFamilia.map((item, index) => (
                   <option key={index} value={item.modelo}>
                     {item.modelo}
                   </option>
@@ -236,6 +280,7 @@ export default function Home() {
               <label>Regional</label>
               <select
                 value={regional}
+                disabled={!modelo}
                 onChange={(e) => {
                   setRegional(e.target.value);
                   setCalculado(false);
@@ -345,6 +390,9 @@ export default function Home() {
         <div className="coluna-resultado">
           {modeloSelecionado && (
             <div className="card-info">
+              <p>
+                <strong>Família:</strong> {modeloSelecionado.familia}
+              </p>
               <p>
                 <strong>Ano/Modelo:</strong> {modeloSelecionado.anoModelo}
               </p>

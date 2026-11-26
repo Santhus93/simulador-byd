@@ -7,17 +7,18 @@
 // A aba EXPORTACAO_WEB deve ter as colunas nesta ordem exata:
 //
 //   A = Modelo
-//   B = AnoModelo
-//   C = PPS
-//   D = Margem        (ex: 0,08 = 8%)
-//   E = Bonus          (texto, ex: "10K VAREJO", "*")
-//   F = Brasilia
-//   G = Goiania
-//   H = BH
-//   I = ES GV          (ES - Grande Vitoria)
-//   J = ES Interior
-//   K = GO Interior
-//   L = MG Interior
+//   B = FAMILIA
+//   C = AnoModelo
+//   D = PPS
+//   E = Margem        (ex: 0,08 = 8%)
+//   F = Bonus          (texto, ex: "10K VAREJO", "*")
+//   G = Brasilia
+//   H = Goiania
+//   I = BH
+//   J = ES GV          (ES - Grande Vitoria)
+//   K = ES Interior
+//   L = GO Interior
+//   M = MG Interior
 //
 // COMO USAR:
 //
@@ -51,13 +52,13 @@ const path = require("path");
 // ======================= CONFIGURACAO =======================
 
 // Nome do arquivo Excel (deve estar na mesma pasta deste script)
-const ARQUIVO_EXCEL = "./POLITICA/POLITICA VENDAS BYD SET ATUALIZADA.xlsm";
+const ARQUIVO_EXCEL = "./POLITICA/POLITICA VENDAS BYD ATUALIZADA.xlsm";
 
 // Nome exato da aba com a tabela ja pronta para exportacao
 const NOME_ABA = "EXPORTACAO_WEB";
 
 // Versao e mes de referencia da politica (aparecem no topo do simulador)
-const MES_REFERENCIA = "OUTUBRO/2026";
+
 
 // Numero da linha (contando visualmente, linha 1 = cabecalho) onde
 // COMECAM os dados de verdade. Pelo print enviado, a linha 1 e o
@@ -69,17 +70,18 @@ const LINHA_INICIO_DADOS = 2;
 // e assim por diante).
 const COLUNAS = {
   modelo: 0, // A
-  anoModelo: 1, // B
-  pps: 2, // C
-  margem: 3, // D
-  bonusTexto: 4, // E (texto, viraconforme a política  "observacao")
-  brasilia: 5, // F
-  goiania: 6, // G
-  bh: 7, // H
-  esGrandeVitoria: 8, // I
-  esInterior: 9, // J
-  goiasInterior: 10, // K
-  mgInterior: 11, // L
+  familia: 1, // B
+  anoModelo: 2, // C
+  pps: 3, // D
+  margem: 4, // E
+  bonusTexto: 5, // F
+  brasilia: 6, // G
+  goiania: 7, // H
+  bh: 8, // I
+  esGrandeVitoria: 9, // J
+  esInterior: 10, // K
+  goiasInterior: 11, // L
+  mgInterior: 12, // M
 };
 
 // Se true, pula linhas onde o PPS for 0 (modelos desativados/placeholder,
@@ -96,15 +98,38 @@ function limparTexto(valor) {
 }
 
 function numero(valor) {
-  if (typeof valor === "number") return valor;
-  if (!valor) return 0;
-  const limpo = String(valor).replace(/\./g, "").replace(",", ".");
-  const n = parseFloat(limpo);
-  return isNaN(n) ? 0 : n;
+  if (typeof valor === "number") {
+    return Number.isFinite(valor) ? valor : 0;
+  }
+
+  if (valor === undefined || valor === null || valor === "") return 0;
+
+  const texto = String(valor).trim();
+  if (!texto || texto === "-" || texto === "*") return 0;
+
+  const semMoeda = texto.replace(/R\$/gi, "").replace(/\s/g, "");
+  const normalizado = semMoeda.includes(",")
+    ? semMoeda.replace(/\./g, "").replace(",", ".")
+    : semMoeda;
+
+  const n = Number(normalizado);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function competenciaAtual() {
+  const agora = new Date();
+  const formatter = new Intl.DateTimeFormat("pt-BR", {
+    month: "long",
+    year: "numeric",
+    timeZone: "America/Sao_Paulo",
+  });
+
+  return formatter.format(agora).replace(" de ", "/").toUpperCase();
 }
 
 function main() {
   const caminho = path.resolve(ARQUIVO_EXCEL);
+  const mesReferencia = competenciaAtual();
 
   if (!fs.existsSync(caminho)) {
     console.error(`\nArquivo nao encontrado: ${caminho}`);
@@ -160,6 +185,7 @@ function main() {
     };
 
     const item = {
+      familia: limparTexto(linha[COLUNAS.familia]),
       modelo,
       anoModelo: limparTexto(linha[COLUNAS.anoModelo]),
       pps,
@@ -197,17 +223,18 @@ function main() {
   }
 
   const resultado = {
-  mesReferencia: MES_REFERENCIA,
+  mesReferencia,
   modelos,
 };
 
-  const destino = path.resolve("./politica.json");
+  const destino = path.resolve("./src/data/politica.json");
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
   fs.writeFileSync(destino, JSON.stringify(resultado, null, 2), "utf-8");
 
   console.log(`\nArquivo gerado: ${destino}`);
   console.log(`Total de modelos: ${modelos.length}`);
   console.log(
-    "Copie este arquivo para src/data/politica.json para atualizar o simulador.\n"
+    "O simulador BYD utiliza: src/data/politica.json\n"
   );
 }
 
